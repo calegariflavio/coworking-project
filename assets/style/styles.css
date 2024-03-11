@@ -1,0 +1,171 @@
+/*Navbar*/
+.navbar-container { border-radius: 0; background:rgba(0, 0, 0, .8); border-bottom:1px solid rgba(255, 255, 255, 0.15); min-height:100px; padding-top:25px; margin-bottom:0;}
+.navbar-container *:focus { outline: 0; }
+
+.navbar-container .navbar-nav > li > a,
+.navbar-container .navbar-nav > .open ul > a { color:rgba(255, 255, 255, .4); }
+
+.navbar-container .navbar-nav > .active > a,
+.navbar-container .navbar-nav > .active > a:hover, 
+.navbar-container .navbar-nav > .active > a:focus { color: #fff; background:none ; }
+.navbar-container .navbar-nav > .open > a{ background:none; color:white; }
+
+.navbar-container .navbar-nav>li>a:hover, 
+.navbar-container .navbar-nav>li>a:focus,
+.navbar-container .navbar-nav>.open>a:hover, 
+.navbar-container .navbar-nav>.open>a:focus { background:none; color:white; }
+
+.navbar-container .navbar-brand { font-family: "Open sans", helvetica, arial; font-size: 24px; color:white; padding:0 0 0 15px; margin:12px 0 0 0; }
+	.navbar-container .navbar-brand img { margin-top:-8px;}
+
+.navbar-nav .btn { border:1px solid rgba(255, 255, 255, .2); margin-left:5px; margin-top:5px; padding-top:10px; padding-bottom:10px; }
+
+.navbar-nav a.btn:focus, 
+.navbar-nav a.btn:hover  { border:1px solid rgba(255,255,255,.6); }
+
+.navbar-collapse { border:0 none;  border-top:0 none; box-shadow: none; }
+
+/* Header */
+#head {
+    background: #181015 url( /assets/images/bg_header.jpg) no-repeat;
+    background-size: cover;
+    min-height: 520px;
+    text-align: center;
+    padding-top: 240px;
+    color: white;
+    font-family: "Open sans", Helvetica, Arial;
+    font-size: 100px;
+    font-weight: 300;
+}
+
+#head.secondary {
+    height: 100px;
+    min-height: 100px;
+    padding-top: 0px;
+}
+
+
+/*Footer*/
+/* Footer */
+.footer1 {
+    background: #302A31;
+    padding: 30px 0 0 0;
+    font-size: 12px;
+    color: #999;
+}
+
+.footer1 a {
+    color: #ccc;
+}
+
+.footer1 a:hover {
+    color: #fff;
+}
+
+.footer1 .panel {
+    background-color: #302A31;
+    margin-bottom: 30px;
+}
+
+.footer1 .panel-title {
+    font-size: 17px;
+    font-weight: bold;
+    color: #ccc;
+    margin: 0 0 20px;
+}
+
+.footer1 .entry-meta {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    margin: 0 0 35px 0;
+    padding: 2px 0;
+    color: #888888;
+    font-size: 12px;
+    font-size: 0.75rem;
+}
+
+.footer1 .entry-meta a {
+    color: #333333;
+}
+
+.footer1 .entry-meta .meta-in {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+.footer2 {
+    padding: 15px 0;
+    color: #777;
+    font-size: 12px;
+}
+
+.footer2 a {
+    color: #aaa;
+}
+
+.footer2 a:hover {
+    color: #999;
+}
+
+.footer2 p {
+    margin: 0;
+}
+
+.panel-body {
+    padding: 0px;
+}
+
+/* Helpers */
+.container-full {
+    margin: 0 auto;
+    width: 100%;
+}
+
+/*Logo*/
+img[src="assets/images/logo.svg"] { 
+    width: 150px;
+    height: 50px;
+}
+
+/*About us image grid*/
+.image-grid {
+    margin-top: 20px;
+    display: flex;        
+    flex-wrap: wrap;      
+    justify-content: space-around;  
+    
+}
+
+.image-grid img {
+    width: 22.5%;         
+    margin-bottom: 10px;  
+    border-radius: 3%;   
+    transition: transform 0.1s ease-in-out;
+}
+
+.image-grid img:hover {
+    transform: scale(1.1);
+}
+
+article p {
+    text-align: justify;
+}
+
+.about-grid-container img { /* This will select the image within the .maincontent */
+    width: 200px;   /* Adjust this value as needed */
+    height: auto;   /* Automatically maintain aspect ratio */
+}
+
+.sidebar {
+    padding-top: 36px;
+    padding-bottom: 30px;
+}
+
+.sidebar .panel {
+    margin-bottom: 20px;
+}
+
+.sidebar h1, .sidebar .h1, .sidebar h2, .sidebar .h2, .sidebar h3, .sidebar .h3 {
+    margin-top: 20px;
+} 
