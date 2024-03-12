@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="assets/style/font-awesome.min.css">
     <link rel="stylesheet" href="assets/style/bootstrap.min.css">
     <link rel="stylesheet" href="assets/style/styles.css">
-    <link rel="stylesheet" href="assets/js/script.js">
 </head>
 
 <body>
@@ -115,8 +114,10 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="rent">Expected Rent $</label>
-                            <input type="number" class="form-control" id="rent">
+                            <label for="city">City</label>
+                            <select class="form-control" id="city">
+                                <option value="">Select</option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -129,16 +130,16 @@
                             <input type="tel" class="form-control" id="phone">
                         </div>
                         <div class="form-group">
-                            <label for="city">City</label>
-                            <input type="text" class="form-control" id="city">
-                        </div>
-                        <div class="form-group">
                             <label for="postalCode">Postal Code</label>
                             <input type="text" class="form-control" id="postalCode">
                         </div>
                         <div class="form-group">
                             <label for="seats">Seats available</label>
                             <input type="number" class="form-control" id="seats">
+                        </div>
+                        <div class="form-group">
+                            <label for="rent">Expected Rent $</label>
+                            <input type="number" class="form-control" id="rent">
                         </div>
                     </div>
                 </div>
@@ -227,6 +228,7 @@
 
     <!-- JavaScript libs are placed at the end of the document so the pages load faster -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>
