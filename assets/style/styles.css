@@ -282,8 +282,7 @@ article p {
 .info-text {
     font-size: smaller;
     color: gray;
-    display: block;
-    margin-bottom: 10px;
+    display: inline-block;
 }
 
 .formPrice {
