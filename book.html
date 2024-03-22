@@ -1,189 +1,216 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Coworking</title>
 
-    <link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+    <link
+      rel="stylesheet"
+      media="screen"
+      href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700"
+    />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="assets/style/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/style/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/style/styles.css">
-</head>
+    <link rel="stylesheet" href="assets/style/font-awesome.min.css" />
+    <link rel="stylesheet" href="assets/style/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/style/styles.css" />
+  </head>
 
-<body>
+  <body>
     <!-- Fixed navbar -->
     <div class="navbar navbar-container navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="index.html"><img src="assets/images/logo.svg"
-                        alt="Coworking">Coworking</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav pull-right">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="list.html">List</a></li>
-                    <li class="active"><a href="book.html">Book</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-
-                </ul>
-            </div>
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="index.html"
+            ><img src="assets/images/logo.svg" alt="Coworking" />Coworking</a
+          >
         </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav pull-right">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="list.html">List</a></li>
+            <li class="active"><a href="book.html">Book</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
     <!-- /.navbar -->
 
     <!-- Header -->
     <header id="head" class="secondary"></header>
     <div class="image-grid">
-        <header class="page-header">
-            <h1 class="page-title">Find a space with us today</h1>
-        </header>
+      <header class="page-header">
+        <h1 class="page-title">Find a space with us today</h1>
+      </header>
     </div>
     <!-- /Header -->
 
     <!-- Intro -->
-    <div class=" container text-center">
-        <div class="row">  
-
+    <div class="container text-center">
+      <div class="row">
         <!-- Form -->
         <div class="container mt-5 book-form">
-            <h1>Coworking Space Search</h1>
-            <div class="row">
-                <div class="col-md-4">
-                    <form id="searchForm">
-                        <div class="form-group">
-                            <label for="city">City</label>
-                            <select class="form-control" id="city">
-                                <option value="">Select City</option>
-                                <option value="Calgary">Calgary</option>
-                                <option value="Edmonton">Edmonton</option>
-                                <option value="Lethbridge">Lethbridge</option>
-                                <option value="Kelowna">Kelowna</option>
-                                <option value="Vancouver">Vancouver</option>
-                                <option value="Victoria">Victoria</option>
-                            </select>
-                        </div>
-                        <div class="form-group formPrice">
-                            <label class="labelMaxPrice" for="maxPrice">Maximum Price (CAD)</label>
-                            <span class="info-text">Minimum $500 and Maximum $10.000</span>
-                            <div class="d-flex align-items-center">
-                                <input type="range" id="maxPrice" name="maxPrice" min="500" max="10000" value="500" step="500" required>
-                                <span id="priceOutput">$500.00</span>
-                            </div>
-                          </div>
-                        
-                        <div class="form-group">
-                            <label for="seats">Seats Available</label>
-                            <input type="number" class="form-control" id="seats">
-                        </div>
-                        <div class="form-group">
-                            <label for="date">Date</label>
-                            <input type="date" class="form-control" id="date">
-                        </div>
-                        <div class="form-group">
-                            <label for="timeSlot">Time Slot</label>
-                            <select class="form-control" id="timeSlot">
-                                <option value="">Select Time</option>
-                                <option value="Morning">Morning</option>
-                                <option value="Afternoon">Afternoon</option>
-                            </select>
-                        </div>
-                        <button id="btn-search" type="submit" class="btn btn-primary btn-search">Search</button>
-                    </form>
+          <h1>Coworking Space Search</h1>
+          <div class="row">
+            <div class="col-md-4">
+              <form id="searchForm">
+                <div class="form-group">
+                  <label for="city">City</label>
+                  <select class="form-control" id="city">
+                    <option value="">Select City</option>
+                    <option value="Calgary">Calgary</option>
+                    <option value="Edmonton">Edmonton</option>
+                    <option value="Lethbridge">Lethbridge</option>
+                    <option value="Kelowna">Kelowna</option>
+                    <option value="Vancouver">Vancouver</option>
+                    <option value="Victoria">Victoria</option>
+                  </select>
                 </div>
-                <div class="col-md-8">
-                    <div id="searchResults">
-                        <h2>Search Results</h2>
-                        <ul class="list-group">
-                            TBD
-                        </ul>
-                    </div>
+                <div class="form-group formPrice">
+                  <label class="labelMaxPrice" for="maxPrice"
+                    >Maximum Price (CAD)</label
+                  >
+                  <span class="info-text"
+                    >Minimum $500 and Maximum $10.000</span
+                  >
+                  <div class="d-flex align-items-center">
+                    <input
+                      type="range"
+                      id="maxPrice"
+                      name="maxPrice"
+                      min="500"
+                      max="10000"
+                      value="500"
+                      step="500"
+                      required
+                    />
+                    <span id="priceOutput">$500.00</span>
+                  </div>
                 </div>
+
+                <div class="form-group">
+                  <label for="seats">Seats Available</label>
+                  <input type="number" class="form-control" id="seats" />
+                </div>
+                <div class="form-group">
+                  <label for="date">Date</label>
+                  <input type="date" class="form-control" id="date" />
+                </div>
+                <div class="form-group">
+                  <label for="timeSlot">Time Slot</label>
+                  <select class="form-control" id="timeSlot">
+                    <option value="">Select Time</option>
+                    <option value="Morning">Morning</option>
+                    <option value="Afternoon">Afternoon</option>
+                  </select>
+                </div>
+                <button
+                  id="btn-search"
+                  type="submit"
+                  class="btn btn-primary btn-search"
+                >
+                  Search
+                </button>
+              </form>
             </div>
+            <div class="col-md-8">
+              <div id="searchResults">
+                <h2>Search Results</h2>
+                <ul class="list-group">
+                  TBD
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
         <!-- /Form -->
-        </div>
+      </div>
     </div>
 
     <footer id="footer" class="top-space">
-
-        <div class="footer1">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-5 panel">
-                        <h3 class="panel-title">About Coworking</h3>
-                        <div class="panel-body">
-                            <p>Lorem ipsum dolor amet, consectetur adipiscing elit. Aenean leo lectus sollicitudin
-                                convallis eget libero. Aliquam laoreet tellus ut libero semper, egestas velit
-                                malesuada.
-                                Sed non risus eget dolor amet vestibulum ullamcorper. Integer feugiat molestie.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 panel contact">
-                        <h3 class="panel-title">Contact Info</h4>
-                            <div class="panel-body">
-                                <p>Lorem ipsum dolor amet, consectetur adipiscing ipsum dolor.</p>
-                                <ul>
-                                    <li><i class="fa fa-phone"></i>1-123-345-6789</li>
-                                    <li><a href="#"><i class="fa fa-envelope-o"></i> contact@gmail.com</a></li>
-                                    <li><i class="fa fa-flag"></i>123 Smith Drive, Baltimore, MD 21212</li>
-                                </ul>
-                            </div>
-                    </div>
-
-                    <div class="col-md-3 panel">
-                        <h3 class="panel-title">Follow us</h3>
-                        <div class="panel-body">
-                            <p class="follow-me-icons">
-                                <a href=""><i class="fa fa-twitter fa-2"></i></a>
-                                <a href=""><i class="fa fa-dribbble fa-2"></i></a>
-                                <a href=""><i class="fa fa-github fa-2"></i></a>
-                                <a href=""><i class="fa fa-facebook fa-2"></i></a>
-                                <a href=""><i class="fa fa-youtube fa-2"></i></a>
-                                <a href=""><i class="fa fa-pinterest fa-2"></i></a>
-                            </p>
-                        </div>
-                    </div>
-
-                </div> <!-- /row of panels -->
+      <div class="footer1">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-5 panel">
+              <h3 class="panel-title">About Coworking</h3>
+              <div class="panel-body">
+                <p>
+                  Lorem ipsum dolor amet, consectetur adipiscing elit. Aenean
+                  leo lectus sollicitudin convallis eget libero. Aliquam laoreet
+                  tellus ut libero semper, egestas velit malesuada. Sed non
+                  risus eget dolor amet vestibulum ullamcorper. Integer feugiat
+                  molestie.
+                </p>
+              </div>
             </div>
-        </div>
 
-        <div class="footer2">
-            <div class="container">
-                <div class="row">
-
-                    <div class="col-md-6 panel">
-                        <div class="panel-body">
-                            <p class="simplenav">
-                                <a href="index.html">Home</a> |
-                                <a href="about.html">About</a> |
-                                <a href="contact.html">Contact</a>
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 panel">
-                        <div class="panel-body">
-                            <p class="text-right">
-                                Copyright &copy; 2024
-                            </p>
-                        </div>
-                    </div>
-
-                </div> <!-- /row of panels -->
+            <div class="col-md-4 panel contact">
+              <h3 class="panel-title">Contact Info</h3>
+              <div class="panel-body">
+                <p>
+                  Lorem ipsum dolor amet, consectetur adipiscing ipsum dolor.
+                </p>
+                <ul>
+                  <li><i class="fa fa-phone"></i>1-123-345-6789</li>
+                  <li>
+                    <a href="#"
+                      ><i class="fa fa-envelope-o"></i> contact@gmail.com</a
+                    >
+                  </li>
+                  <li>
+                    <i class="fa fa-flag"></i>123 Smith Drive, Baltimore, MD
+                    21212
+                  </li>
+                </ul>
+              </div>
             </div>
-        </div>
 
+            <div class="col-md-3 panel">
+              <h3 class="panel-title">Follow us</h3>
+              <div class="panel-body">
+                <p class="follow-me-icons">
+                  <a href=""><i class="fa fa-twitter fa-2"></i></a>
+                  <a href=""><i class="fa fa-dribbble fa-2"></i></a>
+                  <a href=""><i class="fa fa-github fa-2"></i></a>
+                  <a href=""><i class="fa fa-facebook fa-2"></i></a>
+                  <a href=""><i class="fa fa-youtube fa-2"></i></a>
+                  <a href=""><i class="fa fa-pinterest fa-2"></i></a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- /row of panels -->
+        </div>
+      </div>
+
+      <div class="footer2">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 panel">
+              <div class="panel-body">
+                <p class="simplenav">
+                  <a href="index.html">Home</a> |
+                  <a href="about.html">About</a> |
+                  <a href="contact.html">Contact</a>
+                </p>
+              </div>
+            </div>
+
+            <div class="col-md-6 panel">
+              <div class="panel-body">
+                <p class="text-right">Copyright &copy; 2024</p>
+              </div>
+            </div>
+          </div>
+          <!-- /row of panels -->
+        </div>
+      </div>
     </footer>
 
     <!-- JavaScript libs are placed at the end of the document so the pages load faster -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="assets/js/script.js"></script>
-</body>
-
+  </body>
 </html>
