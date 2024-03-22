@@ -32,7 +32,7 @@ $(document).ready(function() {
 });
 
 // Price range slider - Book screen
-document.getElementById("maxPrice").addEventListener("input", function() {
+document.getElementById("maxPriceFilter").addEventListener("input", function() {
   const priceOutput = document.getElementById("priceOutput");
   const formattedPrice = new Intl.NumberFormat('en-CA', { style: 'currency', currency: 'CAD' }).format(this.value);
   priceOutput.textContent = formattedPrice;

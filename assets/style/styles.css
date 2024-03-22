@@ -325,3 +325,29 @@ article p {
     transition: transform 0.3s ease-in-out;  
     transform: rotate(20deg) scale(1.1); 
 }
+
+/*Popup*/
+.popup {
+    display: none; 
+    position: fixed; 
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000; 
+  }
+  
+  .popup-content {
+    position: relative; /* To position the close button */
+  }
+  
+  .close-btn {
+    position: absolute;
+    right: 5px;
+    top: -25px;
+    cursor: pointer;
+    font-size: 24px; 
+  }

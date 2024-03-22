@@ -33,6 +33,7 @@ document
     seats: seats,
     rent: rent,
     details: details,
+    available: true
   };
 
   // Push the form data into an array
@@ -51,6 +52,7 @@ document
       rent: 719,
       details:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      available: true
     },
     {
       id: generateUniqueId(),
@@ -66,6 +68,7 @@ document
       rent: 550,
       details:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      available: true
     },
     {
       id: generateUniqueId(),
@@ -81,6 +84,7 @@ document
       rent: 1000,
       details:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      available: true
     },
     {
       id: generateUniqueId(),
@@ -96,6 +100,7 @@ document
       rent: 650,
       details:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      available: true
     },
     {
       id: generateUniqueId(),
@@ -111,6 +116,7 @@ document
       rent: 880,
       details:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      available: true
     },
     {
       id: generateUniqueId(),
@@ -126,6 +132,7 @@ document
       rent: 1200,
       details:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      available: true
     },
     {
       id: generateUniqueId(),
@@ -141,6 +148,7 @@ document
       rent: 2000,
       details:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      available: true
     },
     {
       id: generateUniqueId(),
@@ -156,6 +164,7 @@ document
       rent: 1250,
       details:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      available: true
     },
     {
       id: generateUniqueId(),
@@ -171,6 +180,7 @@ document
       rent: 2550,
       details:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      available: true
     },
     {
       id: generateUniqueId(),
@@ -186,10 +196,39 @@ document
       rent: 999,
       details:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      available: true
     },
   ];
 
+  var existingData = localStorage.getItem('submittedFormData');
+
+  if (existingData) {
+    formDataArray = JSON.parse(existingData);
+  } 
+
   formDataArray.push(formData);
 
+  localStorage.setItem('submittedFormData', JSON.stringify(formDataArray));
+
   console.log(formDataArray); // Output the array to console
+
+  // Display submitted values in the popup
+  var popupFormData = document.getElementById('popupFormData');
+  popupFormData.innerHTML = `
+      <p><strong>Name:</strong> ${formData.name}</p>
+      <p><strong>Email:</strong> ${formData.email}</p>
+      <p><strong>Phone:</strong> ${formData.phone}</p>
+      <p><strong>Property Name:</strong> ${formData.propertyName}</p>
+      <p><strong>Details:</strong> ${formData.details}</p>
+      `;
+
+  // Show the popup
+  var popup = document.getElementById("formSubmitPopup");
+  popup.style.display = "block";
+
+  // Close button functionality
+  popup.querySelector('.close-btn').addEventListener('click', function() {
+    popup.style.display = "none";
+    document.getElementById("contactForm").reset();
+  }); 
 });
