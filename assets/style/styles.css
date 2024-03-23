@@ -69,6 +69,21 @@
     display: inline-flex;
 }
 
+/*Main*/
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+    grid-gap: 10px; /* Optional spacing between grid items */
+    border-radius: 3%;
+    border: 1px solid rgba(255, 255, 255, .6);
+  }
+  
+  .grid-item {
+    
+    padding: 20px;
+    text-align: center;
+  }
+
 /* Header */
 #head {
     min-height: 520px;
