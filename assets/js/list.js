@@ -17,7 +17,7 @@ document
     var details = document.getElementById("details").value;
 
     var generateUniqueId = () => {
-      return Math.random().toString(36).substr(2, 9); // Generates a random string
+      return Math.random().toString(16).slice(2, 10); // Generates a random string
     };
     // Create an object with the form values
     var formData = {
