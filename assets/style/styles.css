@@ -100,6 +100,12 @@
   padding-top: 0px;
 }
 
+#testimonials{
+  text-decoration: underline;
+  text-decoration-style: double;
+  text-decoration-color: ;
+}
+
 /*Footer*/
 /* Footer */
 .footer1 {
@@ -211,7 +217,6 @@ img[src="assets/images/logo.svg"]:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  cursor: pointer;
 }
 
 .image-grid img {
@@ -244,7 +249,7 @@ article p {
 }
 
 .sidebar .panel {
-  margin-bottom: 20px;
+  margin-left: 10px;
 }
 
 .sidebar h1,
