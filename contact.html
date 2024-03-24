@@ -55,11 +55,12 @@
       <div class="row">
         <!-- Form -->
         <div class="container mt-5 contactForm">
-          <form id="contactForm">
+          <form id="contactForm" method="get" action="mailto:finalproject.sodv1201@gmail.com" enctype="text/plain">
             <div class="form-group">
               <label for="name">Name</label>
               <input
                 type="text"
+                name="name"
                 class="form-control"
                 id="name"
                 placeholder="Enter your name"
@@ -70,6 +71,7 @@
               <label for="email">Email</label>
               <input
                 type="email"
+                name="email"
                 class="form-control"
                 id="email"
                 placeholder="Enter your email"
@@ -80,6 +82,7 @@
               <label for="subject">Subject</label>
               <input
                 type="text"
+                name="subject"
                 class="form-control"
                 id="subject"
                 placeholder="Enter subject"
@@ -90,6 +93,7 @@
               <label for="message">Message</label>
               <textarea
                 class="form-control"
+                name="body"
                 id="message"
                 rows="5"
                 placeholder="Enter your message"
