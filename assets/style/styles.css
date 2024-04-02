@@ -357,3 +357,70 @@ article p {
   cursor: pointer;
   font-size: 24px;
 }
+
+/*Owner management*/
+.list-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(25%, 1fr)); /* Divide the screen into 4 columns */
+  gap: 10px; /* Adjust the gap between elements as needed */
+}
+.list-group-item {
+  margin-bottom: 10px;
+  margin-right: 10px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  max-height: 300px;
+}
+
+/* Clearfix to ensure proper alignment */
+.list-group-item:nth-child(3n+1) {
+  clear: left;
+}
+
+
+.list-group-item:hover {
+  background-color: #ebebeb;
+}
+
+.list-group-item h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.list-group-item p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.list-group-item .edit-btn {
+  margin-left: auto;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.list-group-item .edit-btn:hover {
+  background-color: #0056b3;
+}
+
+.list-group-item .delete-btn {
+  margin-left: auto;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: red;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.list-group-item .delete-btn:hover {
+  background-color: rgb(143, 60, 60);
+}
+
