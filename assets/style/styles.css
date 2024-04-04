@@ -300,17 +300,17 @@ article p {
   margin-bottom: 15px;
 }
 
-.btn-contactForm {
+.btn-listingForm {
   margin-bottom: 10px;
 }
 
-.container.mt-5.contactForm {
+.container.mt-5.listingForm {
   width: 60%;
   align-items: center;
   justify-content: center;
 }
 
-#contactForm label {
+#listingForm label {
   display: flex;
 }
 
