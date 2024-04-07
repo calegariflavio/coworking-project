@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const coworkingSpaceSchema = new mongoose.Schema({
-  name: {
-    type: id,
+  id: {
+    type: String,
     unique: true
   },
   name: {

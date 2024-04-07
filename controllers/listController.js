@@ -1,9 +1,9 @@
-const listCoworkingSpace = require('../models/list');
+const listCoworkingModel = require('../models/list');
 
 //handles the saving of the coworking space data into MongoDB database.
 exports.listNewCoworkingSpace = async (req, res) => {
   try {
-    const newCoworkingSpace = new listCoworkingSpace({
+    const newCoworkingSpace = new listCoworkingModel({
         id: req.body.id, 
         name: req.body.name,
         email: req.body.email,
