@@ -8,11 +8,11 @@ form.addEventListener('submit', async (event) => {
     event.preventDefault(); 
 
     const formData = new FormData(form);
-    const uniqueID = generateUniqueId()
+    const uniqueID = generateUniqueId();
    
     try {
         formData.append('uniqueID', uniqueID);
-        const response = await fetch('/api/list-coworking', {
+        const response = await fetch('/list-coworking', {
             method: 'POST',
             body: formData
         });
@@ -31,11 +31,11 @@ form.addEventListener('submit', async (event) => {
  // Display submitted values in the popup
  var popupFormData = document.getElementById("popupFormData");
 popupFormData.innerHTML = `
-<p><strong>Name:</strong> ${formData.get('name')}</p> 
-<p><strong>Email:</strong> ${formData.get('email')}</p>
-<p><strong>Phone:</strong> ${formData.get('phone')}</p>
-<p><strong>Property Name:</strong> ${formData.get('propertyName')}</p>
-<p><strong>Details:</strong> ${formData.get('details')}</p>
+    <p><strong>Name:</strong> ${formData.get('name')}</p> 
+    <p><strong>Email:</strong> ${formData.get('email')}</p>
+    <p><strong>Phone:</strong> ${formData.get('phone')}</p>
+    <p><strong>Property Name:</strong> ${formData.get('propertyName')}</p>
+    <p><strong>Details:</strong> ${formData.get('details')}</p>
 `;
 
  // Show the popup
