@@ -96,19 +96,19 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" class="form-control" id="name" required />
+                <input type="text" class="form-control" id="name" name="name" required />
               </div>
               <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" required />
+                <input type="email" class="form-control" id="email" name="email" required />
               </div>
               <div class="form-group">
                 <label for="address">Address</label>
-                <input type="text" class="form-control" id="address" />
+                <input type="text" class="form-control" id="address" name="address" />
               </div>
               <div class="form-group">
                 <label for="province">Province</label>
-                <select class="form-control" id="province">
+                <select class="form-control" id="province" name="province">
                   <option value="">Select</option>
                   <option value="AB">Alberta</option>
                   <option value="BC">British Columbia</option>
@@ -116,7 +116,7 @@
               </div>
               <div class="form-group">
                 <label for="city">City</label>
-                <select class="form-control" id="city">
+                <select class="form-control" id="city" name="city">
                   <option value="">Select</option>
                 </select>
               </div>
@@ -124,19 +124,19 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label for="propertyName">Property Name</label>
-                <input type="text" class="form-control" id="propertyName" />
+                <input type="text" class="form-control" id="propertyName" name="propertyName" />
               </div>
               <div class="form-group">
                 <label for="phone">Phone</label>
-                <input type="tel" class="form-control" id="phone" />
+                <input type="tel" class="form-control" id="phone" name="phone" />
               </div>
               <div class="form-group">
                 <label for="postalCode">Postal Code</label>
-                <input type="text" class="form-control" id="postalCode" />
+                <input type="text" class="form-control" id="postalCode" name="postalCode" />
               </div>
               <div class="form-group">
                 <label for="seats">Seats available</label>
-                <input type="number" class="form-control" id="seats" />
+                <input type="number" class="form-control" id="seats" name="seats" />
               </div>
               <div class="form-group">
                 <label for="rent"
@@ -151,13 +151,14 @@
                   id="rent"
                   min="500"
                   max="10000"
+                  name="rent"
                 />
               </div>
             </div>
           </div>
           <div class="form-group">
             <label for="details">Additional Details</label>
-            <textarea class="form-control" id="details" rows="3"></textarea>
+            <textarea class="form-control" id="details" name="details" rows="3"></textarea>
           </div>
           <button type="submit" class="btn btn-primary btn-submit">
             Submit
