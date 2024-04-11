@@ -7,17 +7,42 @@ var generateUniqueId = () => {
 form.addEventListener('submit', async (event) => {
     event.preventDefault(); 
 
-    const formData = new FormData(form);
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const address = document.getElementById('address').value;
+    const province = document.getElementById('province').value;
+    const city = document.getElementById('city').value;
+    const propertyName = document.getElementById('propertyName').value;
+    const phone = document.getElementById('phone').value;
+    const postalCode = document.getElementById('postalCode').value;
+    const seatsAvailable = document.getElementById('seats').value;
+    const expectedRent = document.getElementById('rent').value;
+    const file = document.getElementById('file').files[0];
+
+    const formData = new FormData(); // Use FormData for multipart uploads
+    formData.append('name', name);
+    formData.append('email', email);
+    formData.append('address', address );
+    formData.append('province', province);
+    formData.append('city', city);
+    formData.append('propertyName', propertyName);
+    formData.append('phone', phone);
+    formData.append('postalCode', postalCode);
+    formData.append('seats', seatsAvailable);
+    formData.append('rent', expectedRent);
+    formData.append('file', file);
+
     const uniqueID = generateUniqueId();
+    formData.append('uniqueID', uniqueID);
    
     try {
-        formData.append('uniqueID', uniqueID);
-        const response = await fetch('/list-coworking', {
+        const response = await fetch('http://localhost:3000/list-coworking', {
             method: 'POST',
             body: formData
         });
 
         if (!response.ok) {
+            console.log("RESP: ", response)
             throw new Error('Listing failed'); 
         }
 

@@ -91,7 +91,7 @@
           details and discuss the terms and conditions that are suitable for
           your available space.
         </p>
-        <form id="listingForm">
+        <form id="listingForm" action="/list-coworking" method="POST" enctype="multipart/form-data">
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
@@ -155,6 +155,10 @@
                 />
               </div>
             </div>
+          </div>
+          <div class="form-group">
+            <label for="file">Coworking picture</label>
+            <input type="file" id="file" name="file">
           </div>
           <div class="form-group">
             <label for="details">Additional Details</label>
