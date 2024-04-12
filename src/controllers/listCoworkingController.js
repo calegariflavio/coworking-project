@@ -45,8 +45,6 @@ module.exports = {
       // Save to database
       const result = await model.create(coworkingData); 
 
-      res.send('Listing saved successfully');
-
     } catch (error) {
       console.error(error);
       res.status(500).send('Error saving listing');
