@@ -28,8 +28,18 @@ module.exports = {
 
       // Collect form data and construct the document
       const coworkingData = {
-        // ... your form data fields ...
-        imagePath: (req.file) ? '/uploads/' + req.file.filename : null
+        name: req.body.name,
+        email: req.body.email,
+        address: req.body.address,
+        province: req.body.province,
+        city: req.body.city,
+        propertyName: req.body.propertyName,
+        phone: req.body.phone,
+        postalCode: req.body.postalCode,  
+        seatsAvailable: req.body.seats, // Assuming you want this as a number
+        expectedRent: req.body.rent, // Assuming you want this as a number 
+        imagePath: (req.file) ? '/uploads/' + req.file.filename : null,
+        additionalDetails: req.body.details // If you have a 'details' field
       };
 
       // Save to database
