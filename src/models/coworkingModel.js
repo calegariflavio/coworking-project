@@ -7,8 +7,22 @@ class CoworkingModel {
     const result = await this.collection.insertOne(data);
     return result;
   }
+  
+  async findAll(data) {
+    const result = await this.collection.find(data).toArray();
+    return result;
+  }
 
-  // Add other model methods as needed (find, update, delete)
+  async find(data) {
+    const result = await this.collection.find(data).toArray();
+    return result;
+  }
+
+  async book(data) {
+    const result = await this.collection.update(data);
+    return result;
+  }
+ 
 }
 
 module.exports = CoworkingModel;

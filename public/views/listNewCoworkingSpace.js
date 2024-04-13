@@ -36,6 +36,10 @@ form.addEventListener('submit', async (event) => {
   formData.append('file', file);
   formData.append('details', details);
 
+  const available = true;
+  formData.append('available', available);
+
+
   const uniqueID = generateUniqueId();
   formData.append('uniqueID', uniqueID);
 

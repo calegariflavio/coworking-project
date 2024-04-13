@@ -43,6 +43,7 @@ module.exports = {
           expectedRent: req.body.rent,
           imagePath: '/uploads/' + req.file.filename, 
           additionalDetails: req.body.details, 
+          available: req.body.available
         };
 
         // Save to database
