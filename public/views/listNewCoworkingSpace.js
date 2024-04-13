@@ -17,6 +17,7 @@ form.addEventListener('submit', async (event) => {
     const postalCode = document.getElementById('postalCode').value;
     const seatsAvailable = document.getElementById('seats').value;
     const expectedRent = document.getElementById('rent').value;
+    const details = document.getElementById('details').value;
     const file = document.getElementById('file').files[0];
 
     const formData = new FormData(); // Use FormData for multipart uploads
@@ -31,6 +32,7 @@ form.addEventListener('submit', async (event) => {
     formData.append('seats', seatsAvailable);
     formData.append('rent', expectedRent);
     formData.append('file', file);
+    formData.append('details', details);
 
     const uniqueID = generateUniqueId();
     formData.append('uniqueID', uniqueID);
@@ -41,17 +43,18 @@ form.addEventListener('submit', async (event) => {
             body: formData
         });
 
-        if (!response.ok) {
-            console.log("RESP: ", response)
-            throw new Error('Listing failed'); 
+        if (response.ok) {
+            const responseData = await response.json(); 
+            form.reset();
+        } else {
+            console.error("Error: ",  response.statusText);
         }
 
-        const data = await response.json();
-        console.log('Listing successful:', data);
         } catch (error) {
         console.error('Listing error:', error);
     }
 });
+
 
  // Display submitted values in the popup
  var popupFormData = document.getElementById("popupFormData");

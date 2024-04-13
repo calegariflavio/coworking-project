@@ -1,6 +1,7 @@
 //-------------------------IMPORTS--------------------------------
 const cors = require('cors');
 const express = require('express');
+const path = require('path'); 
 const listCoworkingRoute = require('./src/routes/listCoworkingRoute');
 const { client, DATABASE_NAME, COLLECTION_NAME } = require('./database'); // Import from database.js
 
@@ -11,7 +12,10 @@ const port = 3000;
 //-------------------------MIDDLEWARES--------------------------------
 app.use(express.json());
 app.use(cors());
-app.use(express.static('public')); 
+
+// Serve frontend files (Place this before your routes)
+const publicPath = path.join(__dirname, 'public/views'); 
+app.use(express.static(publicPath)); 
 
 //-------------------------ROUTES--------------------------------
 app.use('/', listCoworkingRoute); // Mount the route 

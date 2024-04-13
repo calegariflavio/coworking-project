@@ -1,49 +1,54 @@
-const multer = require('multer');
 const path = require('path');
 const CoworkingModel = require('../models/coworkingModel'); 
-const { client, DATABASE_NAME, COLLECTION_NAME } = require('../../database'); // Import from database.js
+const { client, DATABASE_NAME, COLLECTION_NAME } = require('../../database'); 
+const multer = require('multer'); 
 
-// Configure Multer 
+// Multer storage configuration
 const storage = multer.diskStorage({
-  destination: (req, file, cb) => cb(null, path.join(__dirname, '../../uploads')),
-  filename: (req, file, cb) => cb(null, file.originalname),
-});
-const upload = multer({ storage });
+  destination: function (req, file, cb) {
+      cb(null, 'uploads/') // File storage destination
+  },
+  filename: function (req, file, cb) {
+      cb(null, file.originalname) // Use original file name
+  }
+})
+const upload = multer({ storage: storage });
 
 module.exports = {
   async listCoworking(req, res) {
-    try {
-      // Ensure database connection (if you haven't done this elsewhere in app.js)
-      await client.connect();
+    console.log('Incoming request:', req.method, req.url);
 
+    try {
       // Create model instance 
       const model = new CoworkingModel(client.db(DATABASE_NAME), COLLECTION_NAME); 
 
-      // Handle file upload (Multer middleware)
-      const uploadResult = await upload.single('file')(req, res, (err) => {
+      // Multer Middleware (Must be before your data parsing logic)
+      await upload.single('file')(req, res, async (err) => { 
         if (err) {
-          return res.status(400).send({ error: 'Error uploading file' });
+          console.error('Error uploading file:', err);
+          return res.status(500).send('Error uploading file');
         }
+
+        // Construct coworkingData 
+        const coworkingData = {
+          name: req.body.name, // Assuming text fields are in req.body
+          email: req.body.email,
+          address: req.body.address,
+          province: req.body.province,
+          city: req.body.city,
+          propertyName: req.body.propertyName,
+          phone: req.body.phone,
+          postalCode: req.body.postalCode,
+          seatsAvailable: req.body.seats,
+          expectedRent: req.body.rent,
+          imagePath: '/uploads/' + req.file.filename, 
+          additionalDetails: req.body.details, 
+        };
+
+        // Save to database
+        const result = await model.create(coworkingData); 
+        res.status(200).json({ success: true, message: 'Listing saved successfully' }); 
       });
-
-      // Collect form data and construct the document
-      const coworkingData = {
-        name: req.body.name,
-        email: req.body.email,
-        address: req.body.address,
-        province: req.body.province,
-        city: req.body.city,
-        propertyName: req.body.propertyName,
-        phone: req.body.phone,
-        postalCode: req.body.postalCode,  
-        seatsAvailable: req.body.seats, // Assuming you want this as a number
-        expectedRent: req.body.rent, // Assuming you want this as a number 
-        imagePath: (req.file) ? '/uploads/' + req.file.filename : null,
-        additionalDetails: req.body.details // If you have a 'details' field
-      };
-
-      // Save to database
-      const result = await model.create(coworkingData); 
 
     } catch (error) {
       console.error(error);
