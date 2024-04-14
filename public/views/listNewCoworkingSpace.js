@@ -39,10 +39,6 @@ form.addEventListener('submit', async (event) => {
   const available = true;
   formData.append('available', available);
 
-
-  const uniqueID = generateUniqueId();
-  formData.append('uniqueID', uniqueID);
-
   try {
     const response = await fetch('http://localhost:3000/list-coworking', {
       method: 'POST',
