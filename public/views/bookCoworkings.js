@@ -1,5 +1,5 @@
 //-----------------------------BOOK A COWORKING----------------------------------------------------------------------------------------------
-const listGroup = document.querySelector('.list-group'); // Or whatever identifies your list
+const listGroup = document.querySelector('.list-group');
 
 
 listGroup.addEventListener('click',  async function(event) {
@@ -20,7 +20,6 @@ listGroup.addEventListener('click',  async function(event) {
   
       if (response.ok) {   
         console.log("200 OK")
-        //reset screen method
         displayPopup();
 
       } else {
@@ -51,3 +50,31 @@ function displayPopup() {
     popup.style.display = "none";
   });
 }
+
+function showPictureInPopup(imagePath) {
+  imagePath = imagePath.replace('/public/views', ''); 
+  const imageElement = document.createElement('img');
+  
+  imageElement.src = imagePath;
+  imageElement.alt = 'Cowork Image';
+
+  displayImgPopup(imageElement);
+}
+
+function displayImgPopup(imgElement) {
+  const popupFormData = document.getElementById("picPopup");
+
+  popupFormData.innerHTML = `
+  <img src="${imgElement.src}" alt="${imgElement.alt}" width="600" height="600">
+  `;
+
+  // Show the popup
+  const popup = document.getElementById("picListPopup");
+  popup.style.display = "block";
+
+// Close button functionality
+popup.querySelector(".close-btn-pic").addEventListener("click", function () {
+  popup.style.display = "none";
+});
+}
+

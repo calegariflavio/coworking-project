@@ -6,10 +6,10 @@ const multer = require('multer');
 // Multer storage configuration
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-      cb(null, 'uploads/') // File storage destination
+      cb(null, './public/views/uploads/') 
   },
   filename: function (req, file, cb) {
-      cb(null, file.originalname) // Use original file name
+      cb(null, file.originalname) 
   }
 })
 const upload = multer({ storage: storage });
@@ -22,7 +22,7 @@ module.exports = {
       // Create model instance 
       const model = new CoworkingModel(client.db(DATABASE_NAME), COLLECTION_NAME); 
 
-      // Multer Middleware (Must be before your data parsing logic)
+      // Multer Middleware
       await upload.single('file')(req, res, async (err) => { 
         if (err) {
           console.error('Error uploading file:', err);
@@ -31,7 +31,7 @@ module.exports = {
 
         // Construct coworkingData 
         const coworkingData = {
-          name: req.body.name, // Assuming text fields are in req.body
+          name: req.body.name,
           email: req.body.email,
           address: req.body.address,
           province: req.body.province,
@@ -41,7 +41,7 @@ module.exports = {
           postalCode: req.body.postalCode,
           seatsAvailable: req.body.seats,
           expectedRent: req.body.rent,
-          imagePath: '/uploads/' + req.file.filename, 
+          imagePath: '/public/views/uploads/' + req.file.filename, 
           additionalDetails: req.body.details, 
           available: req.body.available
         };

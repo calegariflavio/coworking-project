@@ -46,9 +46,8 @@ form.addEventListener('submit', async (event) => {
     });
 
     if (response.ok) {
-      // Display the popup
       displayPopup(formData);  
-      form.reset(); // Reset the form
+      form.reset();
     } else {
       console.error("Error: ", response.statusText);
     }
@@ -62,7 +61,6 @@ form.addEventListener('submit', async (event) => {
 function displayPopup(formData) {
     const popupFormData = document.getElementById("popupFormData");
   
-    // Get the values from the formData or input elements
     const name = formData.get('name');
     const email = formData.get('email');
     const phone = formData.get('phone'); 

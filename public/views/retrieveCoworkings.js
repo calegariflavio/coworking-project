@@ -11,9 +11,8 @@ searchAll.addEventListener('click', async (event) => {
     });
 
     if (response.ok) {
-      // Display the data
-      const fetchedData = await response.json(); // Get JSON data from the server
-      jsonData = fetchedData; // Update your data  
+      const fetchedData = await response.json();
+      jsonData = fetchedData;
       console.log({jsonData})   
       displayAll();  
     } else {
@@ -42,9 +41,8 @@ searchAll.addEventListener('click', async (event) => {
       });
   
       if (response.ok) {
-        // Display the data
-        const fetchedData = await response.json(); // Get JSON data from the server
-        jsonData = fetchedData; // Update your data  
+        const fetchedData = await response.json();
+        jsonData = fetchedData; 
         console.log({jsonData})   
         displaySearchResults(jsonData);  
       } else {
@@ -66,14 +64,32 @@ searchAll.addEventListener('click', async (event) => {
       listGroup.append('<li class="list-group-item">No results found</li>');
     } else {
       filteredData.forEach((item) => {
+        console.log('imagePath:', item.imagePath); 
         listGroup.append(`
           <li class="list-group-item">
             <h3>${item.propertyName}</h3>
             <p><strong>Address:</strong> ${item.address}, ${item.city}, ${item.province}</p>
             <p><strong>Seats:</strong> ${item.seatsAvailable}</p>
             <p><strong>Price:</strong> $${item.expectedRent}</p>
+            <p class="availability" style="color: ${item.available ? 'green' : 'red'}; font-weight: bold;">
+                This space is ${item.available ? 'AVAILABLE' : 'NOT AVAILABLE'}
+            </p> 
             <p id="secretValue"><strong></strong>${item._id}</p>
-            <button class="reservation-btn" id="reservation-btn" name="reservation-btn" type="button" data-item-id="${item.id}">Reserve this space</button>
+            <button class="picture-btn" id="picture-btn" name="" type="button" 
+              onclick="showPictureInPopup('${item.imagePath}')">Show picture
+            </button> 
+            <div id="picListPopup" class="popup">
+              <div class="popup-content">
+                <span class="close-btn-pic">CLOSE</span>
+                <h2>Cowork Picture</h2>
+                <div id="picPopup"></div>
+              </div>
+            </div>
+            <br><br>
+            <button class="reservation-btn" id="reservation-btn" name="reservation-btn" type="button" data-item-id="${item.id}"
+                style="${item.available ? '' : 'display: none'}"> 
+                Book this space
+            </button>
           </li>
         `);
       });
@@ -121,8 +137,25 @@ searchAll.addEventListener('click', async (event) => {
             <p><strong>Address:</strong> ${item.address}, ${item.city}, ${item.province}</p>
             <p><strong>Seats:</strong> ${item.seatsAvailable}</p>
             <p><strong>Price:</strong> $${item.expectedRent}</p>
+            <p class="availability" style="color: ${item.available ? 'green' : 'red'}; font-weight: bold;">
+                This space is ${item.available ? 'AVAILABLE' : 'NOT AVAILABLE'}
+            </p>
             <p id="secretValue"><strong></strong>${item._id}</p>
-            <button class="reservation-btn" data-item-id="${item.id}">Reserve this space  </button>
+            <button class="picture-btn" id="picture-btn" name="" type="button" 
+              onclick="showPictureInPopup('${item.imagePath}')">Show picture
+            </button> 
+            <div id="picListPopup" class="popup">
+              <div class="popup-content">
+                <span class="close-btn-pic">CLOSE</span>
+                <h2>Cowork Picture</h2>
+                <div id="picPopup"></div>
+              </div>
+            </div>
+            <br><br>
+            <button class="reservation-btn" id="reservation-btn" name="reservation-btn" type="button" data-item-id="${item.id}"
+                style="${item.available ? '' : 'display: none'}"> 
+                Book this space
+            </button>
           </li>
         `);
       });

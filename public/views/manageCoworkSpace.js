@@ -1,6 +1,6 @@
 // ---------------------------------------------DISPLAY SPACES-------------------------------------------------------------------------------------
 window.onload = () => {
-    loadAndDisplaySpaces(); // Call the function to fetch and display
+    loadAndDisplaySpaces();
 }
 
 async function loadAndDisplaySpaces() {
@@ -10,13 +10,12 @@ async function loadAndDisplaySpaces() {
       displaySpaces(spacesData);
     } catch (error) {
       console.error('Error fetching spaces:', error);
-      // Handle the error (e.g., display an error message)
     }
   }
   
   function displaySpaces(spacesData) {
     const listedSpacesList = document.querySelector('#listedSpaces ul.list-group');
-    listedSpacesList.innerHTML = ''; // Clear existing listings
+    listedSpacesList.innerHTML = '';
 
     spacesData.forEach(space => {
         const listItem = document.createElement('li');
@@ -41,11 +40,11 @@ async function loadAndDisplaySpaces() {
 // ---------------------------------------------EDIT SPACES-------------------------------------------------------------------------------------
   
 $(document).on("click", ".edit-btn", function () {
-    const mongoId = $(this).data('item-mongo-id'); // Correct attribute name
+    const mongoId = $(this).data('item-mongo-id');
     editListedSpace(mongoId);  
 });
 
-async function editListedSpace(itemId) { // Add 'async' to the function
+async function editListedSpace(itemId) {
 
 try {
     const response = await fetch('http://localhost:3000/search-all-coworkings', { 
@@ -54,7 +53,7 @@ try {
 
     if (response.ok) {
         // Display the data
-        const itemToEdit = await response.json();  // await JSON parsing 
+        const itemToEdit = await response.json();
         console.log("item: ", itemToEdit);
 
         itemToEdit.forEach(value => {
@@ -122,14 +121,14 @@ try {
 // ---------------------------------------------DELETE SPACES-------------------------------------------------------------------------------------
 
   $(document).on("click", ".delete-btn", function () {
-    const mongoId = $(this).data('item-mongo-id'); // Correct attribute name
+    const mongoId = $(this).data('item-mongo-id');
     deleteListedSpace(mongoId)
   });
 
 
 async function deleteListedSpace(itemId) {
-    if (!confirm("Are you sure you want to delete this space?")) { // Optional confirmation
-        return; // Cancel if not confirmed 
+    if (!confirm("Are you sure you want to delete this space?")) {
+        return;
     }
     
     try {
@@ -138,7 +137,7 @@ async function deleteListedSpace(itemId) {
         });
     
         if (response.ok) {
-        loadAndDisplaySpaces(); // Refresh the spaces list
+        loadAndDisplaySpaces();
         } else {
         console.error("Delete failed:", response.statusText);
         }

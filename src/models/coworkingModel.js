@@ -1,8 +1,7 @@
 const ObjectId = require('mongodb').ObjectId;
-//const { ObjectId } = require('mongodb');
 
 class CoworkingModel {
-  constructor(db, collectionName) { // Update: Receive the database object directly
+  constructor(db, collectionName) {
     this.collection = db.collection(collectionName); 
   }
 

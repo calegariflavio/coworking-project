@@ -17,10 +17,10 @@ app.use(cors());
 
 // Serve frontend files (Place this before your routes)
 const publicPath = path.join(__dirname, 'public/views'); 
-app.use(express.static(publicPath)); 
+app.use(express.static(publicPath));
 
 //-------------------------ROUTES--------------------------------
-app.use('/', listCoworkingRoute); // Mount the route 
+app.use('/', listCoworkingRoute);
 app.use('/', bookCoworkingRoute);
 app.use('/', mgmtRoutes);
 

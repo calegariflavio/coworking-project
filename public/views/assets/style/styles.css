@@ -358,6 +358,18 @@ article p {
   font-size: 24px;
   color: black;
 }
+.close-btn-pic {
+  position: absolute;
+  cursor: pointer;
+  bottom: 10px; 
+  right: 10px;
+  color: goldenrod;  /* A light, off-white color */
+}
+
+.close-btn-pic:hover {
+  font-weight: bold; 
+  text-shadow: 0 0 5px rgba(255,255,255,0.5); 
+} 
 
 /*Owner management*/
 .list-group {
