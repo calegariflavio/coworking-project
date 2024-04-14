@@ -356,6 +356,7 @@ article p {
   top: -25px;
   cursor: pointer;
   font-size: 24px;
+  color: black;
 }
 
 /*Owner management*/
@@ -424,3 +425,6 @@ article p {
   background-color: rgb(143, 60, 60);
 }
 
+#secretValue {
+  display: none; 
+}

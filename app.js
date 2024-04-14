@@ -3,7 +3,8 @@ const cors = require('cors');
 const express = require('express');
 const path = require('path'); 
 const listCoworkingRoute = require('./src/routes/listCoworkingRoute');
-const retrieveCoworkingRoute = require('./src/routes/bookRoutes');
+const bookCoworkingRoute = require('./src/routes/bookRoutes');
+const mgmtRoutes = require('./src/routes/mgmtRoutes');
 const { client, DATABASE_NAME, COLLECTION_NAME } = require('./database'); // Import from database.js
 
 //-------------------------SERVER--------------------------------
@@ -20,7 +21,8 @@ app.use(express.static(publicPath));
 
 //-------------------------ROUTES--------------------------------
 app.use('/', listCoworkingRoute); // Mount the route 
-app.use('/', retrieveCoworkingRoute);
+app.use('/', bookCoworkingRoute);
+app.use('/', mgmtRoutes);
 
 //-------------------------ERROR HANDLING--------------------------------
 app.use((err, req, res, next) => {
@@ -31,4 +33,4 @@ app.use((err, req, res, next) => {
 //-------------------------SERVER LISTENING--------------------------------
 app.listen(port, () => {
   console.log(`Server running on port: ${port}`);
-});
+})

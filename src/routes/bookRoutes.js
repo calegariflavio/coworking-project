@@ -4,7 +4,7 @@ const bookController = require('../controllers/bookController');
 
 router.get('/search-all-coworkings', bookController.searchAllCoworkings);
 router.post('/search-coworking', bookController.searchCoworking);
-router.post('/book-coworking', bookController.bookCoworking);
+router.patch('/book-coworking', bookController.bookCoworking);
 
 module.exports = router;
 

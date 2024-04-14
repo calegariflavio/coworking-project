@@ -55,32 +55,6 @@ searchAll.addEventListener('click', async (event) => {
     }
   });
 
-//-----------------------------BOOK A COWORKING----------------------------------------------------------------------------------------------
-form.addEventListener('submit', async (event) => {
-    event.preventDefault(); 
-
-    const formData = new FormData(form);
-  
-    try {
-      const response = await fetch('http://localhost:3000/book-coworking', { 
-        method: 'POST',
-        body: formData
-      });
-  
-      if (response.ok) {
-        // Display the data
-        const fetchedData = await response.json(); // Get JSON data from the server
-        jsonData = fetchedData; // Update your data  
-        console.log({jsonData})   
-        displaySearchResults(jsonData);  
-      } else {
-        console.error("Error: ", response.statusText);
-      }
-    } catch (error) {
-      console.error('Retrieving error:', error);
-    }
-  });
-
 //-----------------------------WILL DISPLAY ALL RETRIEVED DATA----------------------------------------------------------------------------------------------
   function displayAll() {
     const listGroup = $("#searchResults ul.list-group");
@@ -98,7 +72,8 @@ form.addEventListener('submit', async (event) => {
             <p><strong>Address:</strong> ${item.address}, ${item.city}, ${item.province}</p>
             <p><strong>Seats:</strong> ${item.seatsAvailable}</p>
             <p><strong>Price:</strong> $${item.expectedRent}</p>
-            <button class="reservation-btn" data-item-id="${item.id}">Reserve this space</button>
+            <p id="secretValue"><strong></strong>${item._id}</p>
+            <button class="reservation-btn" id="reservation-btn" name="reservation-btn" type="button" data-item-id="${item.id}">Reserve this space</button>
           </li>
         `);
       });
@@ -146,6 +121,7 @@ form.addEventListener('submit', async (event) => {
             <p><strong>Address:</strong> ${item.address}, ${item.city}, ${item.province}</p>
             <p><strong>Seats:</strong> ${item.seatsAvailable}</p>
             <p><strong>Price:</strong> $${item.expectedRent}</p>
+            <p id="secretValue"><strong></strong>${item._id}</p>
             <button class="reservation-btn" data-item-id="${item.id}">Reserve this space  </button>
           </li>
         `);
