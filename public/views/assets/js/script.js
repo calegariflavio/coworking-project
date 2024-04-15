@@ -10,7 +10,7 @@ $(document).ready(function () {
   $("#province").change(function () {
     updateCities();
   });
-
+  //clear the city options nad populate the city name basendo on the province
   function updateCities() {
     var selectedProvince = $("#province").val();
 
@@ -24,7 +24,7 @@ $(document).ready(function () {
       });
     }
   }
-
+  //add a city option element
   function addCityOption(cityName) {
     $("#city").append(
       '<option value="' + cityName + '">' + cityName + "</option>"

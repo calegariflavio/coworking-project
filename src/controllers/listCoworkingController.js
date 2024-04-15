@@ -1,7 +1,7 @@
-const path = require('path');
-const CoworkingModel = require('../models/coworkingModel'); 
-const { client, DATABASE_NAME, COLLECTION_NAME } = require('../../database'); 
-const multer = require('multer'); 
+const path = require('path');//handle the file path
+const CoworkingModel = require('../models/coworkingModel'); //imports the variables and methods from the coworkingModel
+const { client, DATABASE_NAME, COLLECTION_NAME } = require('../../database');  //imports the variables from database
+const multer = require('multer'); //used to handle the uploaded files
 
 // Multer storage configuration
 const storage = multer.diskStorage({
@@ -12,9 +12,10 @@ const storage = multer.diskStorage({
       cb(null, file.originalname) 
   }
 })
-const upload = multer({ storage: storage });
+const upload = multer({ storage: storage }); //middleware 
 
 module.exports = {
+  //function to create a new coworking space list
   async listCoworking(req, res) {
     console.log('Incoming request:', req.method, req.url);
 
@@ -46,7 +47,7 @@ module.exports = {
           available: req.body.available
         };
 
-        // Save to database
+        // Save to database based on the coworkingData variable
         const result = await model.create(coworkingData); 
         res.status(200).json({ success: true, message: 'Listing saved successfully' }); 
       });

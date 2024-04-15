@@ -1,10 +1,10 @@
-const form = document.getElementById('listingForm');
+const form = document.getElementById('listingForm'); //creates a form variable from the list.html
 
-var generateUniqueId = () => {
+var generateUniqueId = () => { //generates a unique ID
   return Math.random().toString(16).slice(2, 10); // Generates a random string
 }; 
 
-form.addEventListener('submit', async (event) => {
+form.addEventListener('submit', async (event) => { //event listener to handle the formData submition
   event.preventDefault(); 
 
   // Collect form data 
@@ -40,7 +40,7 @@ form.addEventListener('submit', async (event) => {
   formData.append('available', available);
 
   try {
-    const response = await fetch('http://localhost:3000/list-coworking', {
+    const response = await fetch('http://localhost:3000/list-coworking', { //sends a POST request with the formData object
       method: 'POST',
       body: formData
     });
@@ -59,7 +59,7 @@ form.addEventListener('submit', async (event) => {
 
 // Function to display the popup
 function displayPopup(formData) {
-    const popupFormData = document.getElementById("popupFormData");
+    const popupFormData = document.getElementById("popupFormData"); //list.html
   
     const name = formData.get('name');
     const email = formData.get('email');

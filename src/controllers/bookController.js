@@ -1,10 +1,11 @@
-const path = require('path');
-const CoworkingModel = require('../models/coworkingModel'); 
-const { client, DATABASE_NAME, COLLECTION_NAME } = require('../../database'); 
-const express = require('express');
+const path = require('path');//handle the file path
+const CoworkingModel = require('../models/coworkingModel');  //imports the variables and methods from the coworkingModel
+const { client, DATABASE_NAME, COLLECTION_NAME } = require('../../database'); // Import from database.js
+const express = require('express'); //creates the server
 const app = express();
 
 module.exports = {
+  //function to search for all coworking spaces
   async searchAllCoworkings(req, res) {
 
     try {
@@ -23,7 +24,7 @@ module.exports = {
       }); 
     }
   },
-
+//function to search for one coworking spaces
   async searchCoworking(req, res) {
 
     try {
@@ -42,7 +43,7 @@ module.exports = {
       }); 
     }
   },
-  
+  //function to book  one coworking spaces
   async bookCoworking(req, res) {  
     try {
       // Create model instance 
