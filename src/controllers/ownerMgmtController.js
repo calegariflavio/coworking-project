@@ -6,8 +6,6 @@ const { client, DATABASE_NAME, COLLECTION_NAME } = require('../../database'); //
 // Function to process the search filters
 module.exports = {
   async searchAllCoworkings(req, res) {
-    console.log('Incoming request:', req.method, req.url);
-
     try {
       // Create model instance 
       const model = new CoworkingModel(client.db(DATABASE_NAME), COLLECTION_NAME); 
@@ -30,9 +28,7 @@ module.exports = {
       // Create model instance 
       const model = new CoworkingModel(client.db(DATABASE_NAME), COLLECTION_NAME); 
       const spaceId = req.params.id; //request the body parameter id
-      console.log('Incoming space ID:', spaceId, 'Type:', typeof(spaceId));
       const foundSpace = await model.findById(new ObjectId(spaceId)); //extract the id 
-      console.log('Found space:', foundSpace);
   
       if (foundSpace) {
         res.json(foundSpace); //return a json data

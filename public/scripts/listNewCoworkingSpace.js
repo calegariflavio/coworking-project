@@ -1,9 +1,5 @@
 const form = document.getElementById('listingForm'); //creates a form variable from the list.html
 
-var generateUniqueId = () => { //generates a unique ID
-  return Math.random().toString(16).slice(2, 10); // Generates a random string
-}; 
-
 form.addEventListener('submit', async (event) => { //event listener to handle the formData submition
   event.preventDefault(); 
 

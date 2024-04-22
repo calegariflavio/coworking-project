@@ -14,7 +14,6 @@ searchAll.addEventListener('click', async (event) => {
     if (response.ok) {
       const fetchedData = await response.json();
       jsonData = fetchedData;
-      console.log({jsonData})   
       displayAll();  
     } else {
       console.error("Error: ", response.statusText);
@@ -44,7 +43,6 @@ searchAll.addEventListener('click', async (event) => {
       if (response.ok) {
         const fetchedData = await response.json();
         jsonData = fetchedData; 
-        console.log({jsonData})   
         displaySearchResults(jsonData);  
       } else {
         console.error("Error: ", response.statusText);
@@ -65,7 +63,6 @@ searchAll.addEventListener('click', async (event) => {
       listGroup.append('<li class="list-group-item">No results found</li>');
     } else {
       filteredData.forEach((item) => {
-        console.log('imagePath:', item.imagePath); 
         listGroup.append(`
           <li class="list-group-item">
             <h3>${item.propertyName}</h3>

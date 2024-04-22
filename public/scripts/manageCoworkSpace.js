@@ -55,7 +55,6 @@ try {
     if (response.ok) {
         // Display the data
         const itemToEdit = await response.json();
-        console.log("item: ", itemToEdit);
 
         itemToEdit.forEach(value => {
             const popupContent = `

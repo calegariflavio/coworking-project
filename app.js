@@ -5,7 +5,7 @@ const path = require('path'); //handle the file path
 const listCoworkingRoute = require('./src/routes/listCoworkingRoute'); //route to listCoworkeRoute
 const bookCoworkingRoute = require('./src/routes/bookRoutes'); //route to bookRoutes
 const mgmtRoutes = require('./src/routes/mgmtRoutes'); //route to mgmtRoutes
-const { client, DATABASE_NAME, COLLECTION_NAME } = require('./database'); // Import from database.js
+const bodyParser = require('body-parser');
 
 //-------------------------SERVER--------------------------------
 const app = express(); //creates a express app to be the initial point of start
@@ -16,8 +16,10 @@ app.use(express.json()); //parse the body from a json object
 app.use(cors()); //allow to be requested from another domain
 
 // Serve frontend files (Place this before your routes)
-const publicPath = path.join(__dirname, 'public/views'); 
-app.use(express.static(publicPath)); //servers static files from a specified directory
+
+app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, '/views'))); // Serve static files from 'views' directory
+app.use('/public', express.static(path.join(__dirname, '/public'))); // Serve static files from 'public' directory
 
 //-------------------------ROUTES--------------------------------
 app.use('/', listCoworkingRoute); //handles the root URL + listCoworkingRoute

@@ -5,12 +5,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Coworking</title>
-  <link rel="icon" type="co-worker-icon" href="/assets/images/logo.svg">
+  <link rel="icon" type="co-worker-icon" href="../public/images/logo.svg">
   <link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="assets/style/font-awesome.min.css" />
-  <link rel="stylesheet" href="assets/style/bootstrap.min.css" />
-  <link rel="stylesheet" href="assets/style/styles.css" />
+  <link rel="stylesheet" href="../public/style/font-awesome.min.css" />
+  <link rel="stylesheet" href="../public/style/bootstrap.min.css" />
+  <link rel="stylesheet" href="../public/style/styles.css" />
 </head>
 
 <body>
@@ -18,16 +18,16 @@
   <div class="navbar navbar-container navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
-        <a class="navbar-brand" href="index.html"><img src="assets/images/logo.svg" alt="Coworking" />Coworking</a>
+        <a class="navbar-brand" href="index.html"><img src="../public/images/logo.svg" alt="Coworking" />Coworking</a>
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav pull-right">
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="list.html">List</a></li>
-          <li class="active"><a href="book.html">Book</a></li>
+          <li><a href="book.html">Book</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <li><a href="owner_management.html">Management</a></li>
+          <li class="active"><a href="owner_management.html">Management</a></li>
         </ul>
       </div>
     </div>
@@ -38,81 +38,37 @@
   <header id="head" class="secondary"></header>
   <div class="image-grid">
     <header class="page-header">
-      <h1 class="page-title">Find a space with us today</h1>
+      <h1 class="page-title">Owner Management</h1>
     </header>
   </div>
   <!-- /Header -->
 
-  <!-- Intro -->
-  <div class="container text-center">
+  <!-- Menu -->
+  <div class="container">
     <div class="row">
-      <!-- Form -->
-      <div class="container mt-5 book-form">
-        <h1>Coworking Space Search</h1>
-        <span class="info-text">Search a specific space or go through our list of available spaces</span>
-        <div class="row">
-          <div class="col-md-4">
-            <form id="searchForm">
-              <div class="form-group">
-                <label for="cityFilter">City</label>
-                <select class="form-control" id="cityFilter" name="cityFilter">
-                  <option value="">Select City</option>
-                  <option value="Calgary">Calgary</option>
-                  <option value="Edmonton">Edmonton</option>
-                  <option value="Lethbridge">Lethbridge</option>
-                  <option value="Kelowna">Kelowna</option>
-                  <option value="Vancouver">Vancouver</option>
-                  <option value="Victoria">Victoria</option>
-                </select>
-              </div>
-              <div class="form-group formPrice">
-                <label class="labelMaxPrice" for="maxPriceFilter">Maximum Price (CAD)</label>
-                <span class="info-text">Minimum $500 and Maximum $10.000</span>
-                <div class="d-flex align-items-center">
-                  <input type="range" id="maxPriceFilter" name="maxPriceFilter" min="500" max="10000" value="500" step="500"
-                    required />
-                  <span id="priceOutput">$500.00</span>
-                </div>
-              </div>
 
-              <div class="form-group">
-                <label for="seatsFilter">Seats Available</label>
-                <input type="number" class="form-control" id="seatsFilter" name="seatsFilter" />
-              </div>
-              <button id="btn-search" name="btn-search" type="submit" class="btn btn-primary btn-search">
-                Search
-              </button>
-            </form>
-            <div>
-              <form>
-              <button id="btn-showAll" name="btn-showAll" type="button" class="btn btn-primary btn-search">
-                Show Available
-              </button>
-            </form>
-            </div>
-            
-            
-          </div>
-          <div class="col-md-8">
-            <div id="searchResults">
-              <h2>Search Results</h2>
-              <ul class="list-group"></ul>
-            </div>
+      <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#yourInfo">Your Info</a></li>
+        <li><a data-toggle="tab" href="#manage">Manage</a></li>
+      </ul>
+
+      <div class="tab-content">
+        <div id="yourInfo" class="tab-pane fade in active">
+          <h1>Your Information</h1>
+          <p>Some random text content for the 'Your Info' section.</p>
+        </div>
+        <div id="manage" class="tab-pane fade">
+          <h1>Listed Spaces</h1>
+          <p>Here you can manage your listed spaces!</p>
+          <div class="listedSpaces" id="listedSpaces">
+            <ul class="list-group"></ul>
           </div>
         </div>
       </div>
-      <!-- /Form -->
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <div id="bookPopup" class="popup">
-    <div class="popup-content">
-      <span class="close-btn">&times;</span>
     </div>
-    <div id="popupUP"></div>
   </div>
+  <!-- /Menu -->
 
   <footer id="footer" class="top-space">
     <div class="footer1">
@@ -191,10 +147,10 @@
   </footer>
 
   <!-- JavaScript libs are placed at the end of the document so the pages load faster -->
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  <script src="assets/js/script.js"></script>
-  <script src="retrieveCoworkings.js"></script>
-  <script src="bookCoworkings.js" defer></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="../public/js/script.js"></script>
+  <script src="../public/scripts/manageCoworkSpace.js"></script>
 </body>
 
 </html>

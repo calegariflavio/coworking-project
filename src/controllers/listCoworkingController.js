@@ -6,7 +6,7 @@ const multer = require('multer'); //used to handle the uploaded files
 // Multer storage configuration
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-      cb(null, './public/views/uploads/') 
+      cb(null, './public/uploads/') 
   },
   filename: function (req, file, cb) {
       cb(null, file.originalname) 
@@ -17,8 +17,6 @@ const upload = multer({ storage: storage }); //middleware
 module.exports = {
   //function to create a new coworking space list
   async listCoworking(req, res) {
-    console.log('Incoming request:', req.method, req.url);
-
     try {
       // Create model instance 
       const model = new CoworkingModel(client.db(DATABASE_NAME), COLLECTION_NAME); 
@@ -42,7 +40,7 @@ module.exports = {
           postalCode: req.body.postalCode,
           seatsAvailable: req.body.seats,
           expectedRent: req.body.rent,
-          imagePath: '/public/views/uploads/' + req.file.filename, 
+          imagePath: '/public/uploads/' + req.file.filename, 
           additionalDetails: req.body.details, 
           available: req.body.available
         };
